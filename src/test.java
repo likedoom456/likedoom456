@@ -7,7 +7,6 @@ import java.io.PrintStream;
  */
 public class test {
     public static void main(String[] args) {
-        int a = 1, b = 2;
-        System.out.println();
+        E52 han=new E52().hanoi(3,'A','B','C');
     }
 }
