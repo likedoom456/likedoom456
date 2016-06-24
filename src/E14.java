@@ -8,17 +8,28 @@ public class E14 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("input YEAR:");
-        float year = scanner.nextFloat();
-        System.out.println("input MONTH:");
-        float month = scanner.nextFloat();
-        System.out.println("input DAY:");
-        float day = scanner.nextFloat();
+        System.out.println("Input date:");
+        E14_1 date = new E14_1(scanner.nextFloat(), scanner.nextFloat(), scanner.nextFloat());
+        if (date.month<=2||date.year%4==0) {
+            System.out.println(date.counter());
+        } else  {
+            System.out.println(date.counter()-1);
+        }
+    }
+}
+
+class E14_1 {
+    float year,month,day;
+
+    public E14_1(float year, float month, float day) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
     }
 
-    static int conter(int year,int month,int day) {
-        int sum = 0;
-        switch (month) {
+    int counter() {
+        float sum = 0;
+        switch ((int)month) {
             case 1:
                 sum=day;
                 break;
@@ -56,7 +67,8 @@ public class E14 {
                 sum=31 + 29 + 31 + 30 +31+30+31+31+30+31+30+day;
                 break;
         }
-        return sum;
-    }
-}
+        return (int)sum;
 
+    }
+
+}
