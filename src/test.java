@@ -7,8 +7,7 @@ import java.io.PrintStream;
  */
 public class test {
         public static void main(String[] args) {
-            Grandson test2;
-            test2 = new Grandson(2);
-            System.out.println(test2.b);
+           E33_1 test=new E33_1(12);
+             test.yanghui();
         }
     }
