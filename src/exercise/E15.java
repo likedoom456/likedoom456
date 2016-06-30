@@ -12,12 +12,12 @@ public class E15 {
         System.out.println("input x:");
         System.out.println("input y:");
         System.out.println("input z:");
-        float x = scanner.nextFloat();
-        float y = scanner.nextFloat();
-        float z = scanner.nextFloat();
-        if (x > y && x > z) {
+        float x = scanner.nextInt();
+        float y = scanner.nextInt();
+        float z = scanner.nextInt();
+        if (x < y && x < z) {
             System.out.println(x);
-            if (y > z) {
+            if (y < z) {
                 System.out.println(y);
                 System.out.println(z);
             } else {
@@ -25,15 +25,15 @@ public class E15 {
                 System.out.println(y);
             }
         } else {
-            if (y > x && y > z) {
+            if (y < x && y < z) {
                 System.out.println(y);
-                if (x > z) {
+                if (x < z) {
                     System.out.println(x);
                     System.out.println(z);
                 }
             } else {
                 System.out.println(z);
-                if (x > y) {
+                if (x < y) {
                     System.out.println(x);
                     System.out.println(y);
                 } else {
