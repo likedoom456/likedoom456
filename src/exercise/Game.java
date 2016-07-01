@@ -17,7 +17,7 @@ public class Game {
             }
             System.out.println();
         }
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             a1 = run(a1);
             for (int[] anA1 : a1) {
                 for (int k = 0; k < a1[0].length; k++) {
@@ -36,31 +36,22 @@ public class Game {
         int[][] b1;
         b1 = a1;
         b1[0][0] = a3;
-//        for (int m = 1; m < a1.length; m++) {//第一列
-//            if ((a1[m][0] == a1[0][0]) && (a1[m][0] == a1[m - 1][0])) {
-//                b1[m][0] = a3;
-//            }
-//            if (a1[m][0] != a1[m + 1][0]) {
-//                break;
-//            }
-//        }
-//        for (int m = 1; m < a1[0].length; m++) {//第一行
-//            if ((a1[0][m] == a1[0][0]) && (a1[0][m] == a1[0][m - 1])) {
-//                b1[0][m] = a3;
-//            }
-//            if (a1[0][m] != a1[0][m + 1]) {
-//                break;
-//            }
-//        }
-        for (int j = 1; j < a1.length-1; j++) {
-            for (int k = 1; k < a1[0].length-1; k++) {
-                if (a1[j][k] == a1[j-1][k] || a1[j][k] == a1[j][k - 1]) {
-                    b1[j][k] = a3;
-                }
-
+        for (int i = 0; i < a1.length - 1; i++) {
+            for (int j = 0; j < a1[0].length - 1; j++) {
+                change(b1, i, j, a3);
             }
         }
         return b1;
+    }
+
+    static int[][] change(int c1[][], int x, int y, int a3) {
+        if (c1[x][y] == c1[x + 1][y]) {
+            c1[x + 1][y] = a3;
+        }
+        if (c1[x][y] == c1[x][y + 1]) {
+            c1[x][y + 1] = a3;
+        }
+        return c1;
     }
 
 }
