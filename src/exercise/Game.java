@@ -9,9 +9,9 @@ public class Game {
 
     public static void main(String[] args) {
         int[] a = {1, 2, 3, 4};
-        int[][] a1 = new int[4][4];
-        for (int i = 0; i < a1.length; i++) {
-            for (int j = 0; j < a1[0].length; j++) {
+        int[][] a1 = new int[6][6];
+        for (int i = 1; i < a1.length - 1; i++) {
+            for (int j = 1; j < a1[0].length - 1; j++) {
                 a1[i][j] = a[(int) (Math.random() * a.length)];
                 System.out.print(a1[i][j] + "  ");
             }
@@ -19,9 +19,9 @@ public class Game {
         }
         for (int i = 0; i < 5; i++) {
             a1 = run(a1);
-            for (int[] anA1 : a1) {
-                for (int k = 0; k < a1[0].length; k++) {
-                    System.out.print(anA1[k] + "  ");
+            for (int j=1;j<a1.length-1;j++) {
+                for (int k = 1; k < a1[0].length - 1; k++) {
+                    System.out.print(a1[j][k] + "  ");
                 }
                 System.out.println();
             }
@@ -33,25 +33,33 @@ public class Game {
     static int[][] run(int a1[][]) {
         Scanner a2 = new Scanner(System.in);
         int a3 = a2.nextInt();
-        int[][] b1;
-        b1 = a1;
-        b1[0][0] = a3;
-        for (int i = 0; i < a1.length - 1; i++) {
-            for (int j = 0; j < a1[0].length - 1; j++) {
-                change(b1, i, j, a3);
+        int[][] b1=new int[a1.length][a1[0].length];int[][] c1=new int[a1.length][a1[0].length];
+        for (int m=0;m<a1.length;m++) {
+            for (int n=0;n<a1[0].length;n++) {
+                b1[m][n]=a1[m][n];
+                c1[m][n]=a1[m][n];
+            }
+        }
+        b1[1][1] = a3;c1[1][1]=5;
+        for (int i = 1; i < a1.length - 1; i++) {
+            for (int j = 1; j < a1[0].length - 1; j++) {
+                if (c1[i][j]==5&&a1[i][j]==a1[1][1]&&a1[i][j]==a1[i][j+1]) {//right
+                    c1[i][j+1]=5;b1[i][j+1]=a3;
+                }
+                if (c1[i][j]==5&&a1[i][j]==a1[1][1]&&a1[i][j]==a1[i+1][j]) {//down
+                    c1[i+1][j]=5;b1[i+1][j]=a3;
+                }
+                if (c1[i][j]==5&&a1[i][j]==a1[1][1]&&a1[i][j]==a1[i][j-1]&c1[i][j-1]!=5) {//left
+                    c1[i][j-1]=5;b1[i][j-1]=a3;
+                    j-=2;
+                    continue;
+                }
+                if (c1[i][j]==5&&a1[i][j]==a3&&a1[i][j]==a1[i-1][j]&&c1[i-1][j]!=5) {//top
+                    c1[i-1][j]=5;b1[i-1][j]=a3;
+                    i-=2;
+                }
             }
         }
         return b1;
     }
-
-    static int[][] change(int c1[][], int x, int y, int a3) {
-        if (c1[x][y] == c1[x + 1][y]) {
-            c1[x + 1][y] = a3;
-        }
-        if (c1[x][y] == c1[x][y + 1]) {
-            c1[x][y + 1] = a3;
-        }
-        return c1;
-    }
-
 }
