@@ -25,6 +25,12 @@ public class Game {
                 }
                 System.out.println();
             }
+            if (charge(a1) == 0) {
+                System.out.println("go on and "+(19-i)+" Steps left");
+            } else {
+                System.out.println("you win");
+                System.exit(0);
+            }
         }
         System.out.println("game over");
 
@@ -62,5 +68,15 @@ public class Game {
             }
         }
         return b1;
+    }
+    static int charge(int d1[][]) {
+        for (int i=1;i<d1.length-1;i++) {
+            for (int j=1;j<d1[0].length-1;j++) {
+                if (d1[i][j]!=d1[1][1]) {
+                    return 0;
+                }
+            }
+        }
+        return 1;
     }
 }
