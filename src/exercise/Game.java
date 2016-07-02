@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Game {
 
     public static void main(String[] args) {
-        int[] a = {1,2,3,4};
+        int[] a = {1, 2, 3, 4,5};
         int[][] a1 = new int[10][10];
         for (int i = 1; i < a1.length - 1; i++) {
             for (int j = 1; j < a1[0].length - 1; j++) {
@@ -17,6 +17,7 @@ public class Game {
             }
             System.out.println();
         }
+
         for (int i = 0; i < 20; i++) {
             a1 = run(a1);
             for (int j=1;j<a1.length-1;j++) {
@@ -46,23 +47,23 @@ public class Game {
                 c1[m][n]=a1[m][n];
             }
         }
-        b1[1][1] = a3;c1[1][1]=5;
+        b1[1][1] = a3;c1[1][1]=100;
         int i,j;
         for ( i = 1; i < a1.length - 1; i++) {
             for ( j = 1; j < a1[0].length - 1; j++) {
-                if (c1[i][j]==5&&a1[i][j]==a1[1][1]&&a1[i][j]==a1[i][j+1]) {//right
-                    c1[i][j+1]=5;b1[i][j+1]=a3;
+                if (c1[i][j]==100&&a1[i][j]==a1[1][1]&&a1[i][j]==a1[i][j+1]) {//right
+                    c1[i][j+1]=100;b1[i][j+1]=a3;
                 }
-                if (c1[i][j]==5&&a1[i][j]==a1[1][1]&&a1[i][j]==a1[i+1][j]) {//down
-                    c1[i+1][j]=5;b1[i+1][j]=a3;
+                if (c1[i][j]==100&&a1[i][j]==a1[1][1]&&a1[i][j]==a1[i+1][j]) {//down
+                    c1[i+1][j]=100;b1[i+1][j]=a3;
                 }
-                if (c1[i][j]==5&&a1[i][j]==a1[1][1]&&a1[i][j]==a1[i][j-1]&&c1[i][j-1]!=5) {//left
-                    c1[i][j-1]=5;b1[i][j-1]=a3;
+                if (c1[i][j]==100&&a1[i][j]==a1[1][1]&&a1[i][j]==a1[i][j-1]&&c1[i][j-1]!=100) {//left
+                    c1[i][j-1]=100;b1[i][j-1]=a3;
                     j-=2;
 
                 }
-                if (c1[i][j]==5&&a1[i][j]==a1[1][1]&&a1[i][j]==a1[i-1][j]&&c1[i-1][j]!=5) {//top
-                    c1[i-1][j]=5;b1[i-1][j]=a3;
+                if (c1[i][j]==100&&a1[i][j]==a1[1][1]&&a1[i][j]==a1[i-1][j]&&c1[i-1][j]!=100) {//top
+                    c1[i-1][j]=100;b1[i-1][j]=a3;
                     i-=2;
                 }
             }
