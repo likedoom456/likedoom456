@@ -9,7 +9,7 @@ public class Game {
 
     public static void main(String[] args) {
         int[] a = {1, 2, 3, 4,5};
-        int[][] a1 = new int[10][10];
+        int[][] a1 = new int[10][11];
         for (int i = 1; i < a1.length - 1; i++) {
             for (int j = 1; j < a1[0].length - 1; j++) {
                 a1[i][j] = a[(int) (Math.random() * a.length)];
