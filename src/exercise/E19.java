@@ -6,7 +6,7 @@ package exercise;
 public class E19 {
     public static void main(String[] args) {
         E_19 test = new E_19();
-        test.blankAndA(10);
+        test.blankAndA(7);
     }
 }
 
